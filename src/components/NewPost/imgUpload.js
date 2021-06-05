@@ -7,7 +7,6 @@ export const handleUploadImg = e => {
     return axios.post('https://api.imgbb.com/1/upload', imgData)
     .then(res => {
         const img = res.data.data.display_url
-        alert('Your image was successfully uploaded')
         return img
     })
 }

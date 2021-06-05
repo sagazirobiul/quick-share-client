@@ -1,3 +1,36 @@
 .selected {
-    border-bottom: 2px solid #0578FF;
+    border-bottom: 2px solid #0d6efd;
+}
+.menuBar {
+    background: #fff!important;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+.navbar {
+    padding: 0!important;
+}
+.dropdown img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.dropdown a {
+    text-decoration: none;
+}
+.dropdown > button {
+    background: #fff;
+    border: none;
+}
+.dropdown-menu {
+    padding: 0.5rem;
+}
+.dropEmail {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid #929292;
 }

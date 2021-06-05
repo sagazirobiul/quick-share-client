@@ -9,20 +9,19 @@ export const initializeApp = () => {
     }
 }
 
-const setEmail = (email) => {
-  localStorage.setItem('email', email);
+const setInfo = (info) => {
+  localStorage.setItem('info', JSON.stringify(info));
 }
 
 export const signInWithProvider = (provider) => {
    return firebase.auth().signInWithPopup(provider)
     .then( result => {
-      let {displayName, email, photoURL} = result.user;
+      let {email, photoURL} = result.user;
       const userInfo = {
-          name: displayName,
           email: email,
           img: photoURL
       }
-      setEmail(email)
+      setInfo(userInfo)
       return userInfo;
     }).catch((error) => {
       const userInfo = {
@@ -35,13 +34,12 @@ export const signInWithProvider = (provider) => {
 export const createAccount = (email, password) => {
     return firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(result => {
-      let {displayName, email, photoURL} = result.user;
+      let {email, photoURL} = result.user;
       const userInfo = {
-          name: displayName,
           email: email,
           img: photoURL
       }
-      setEmail(email)
+      setInfo(userInfo)
       return userInfo;
   })
   .catch((error) => {
@@ -55,13 +53,12 @@ export const createAccount = (email, password) => {
 export const loginWithEmail = (email, password) =>{
   return firebase.auth().signInWithEmailAndPassword(email, password)
   .then(result => {
-    let {displayName, email, photoURL} = result.user;
+    let {email, photoURL} = result.user;
     const userInfo = {
-        name: displayName,
         email: email,
         img: photoURL
     }
-    setEmail(email)
+    setInfo(userInfo)
     return userInfo;
   })
   .catch((error) => {

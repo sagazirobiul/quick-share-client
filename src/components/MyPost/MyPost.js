@@ -1,17 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import swal from 'sweetalert';
 import MyPostCard from './MyPostCard';
-import UpdateForm from './UpdateForm';
 
 const MyPost = () => {
-    const email = localStorage.getItem('email')
+    const info = localStorage.getItem('info');
+    const {email} = JSON.parse(info) || {};
     const [myPosts, setMyPosts] = useState([])
-    const [isUpdate, setIsUpdate] = useState({
-        needUpdate: false,
-        data: {},
-        openModal: false
-    })
+    const [isUpdate, setIsUpdate] = useState(false)
     useEffect(() => {
         axios.get('http://localhost:5050/myPosts?email='+email)
         .then(({data}) => {
@@ -19,20 +16,25 @@ const MyPost = () => {
         })
     }, [email, isUpdate])
     const handleDelete = (id) => {
-        setIsUpdate({...isUpdate, needUpdate:false})
+        setIsUpdate(false)
         axios.delete(`http://localhost:5050/delete/${id}`)
         .then(res => {
             if(res){
-                setIsUpdate({...isUpdate, needUpdate:true})
+                setIsUpdate(true)
+                swal({
+                    title: "Success!",
+                    text: "The post was deleted successfully.",
+                    icon: "success",
+                  })
             }
         })
     }
     return (
-        <div className="row">
+        <div className="row w-100 marginTop">
             <div className="col-md-5 mx-auto">
-                <Link to='new-post'><button className="btn btn-primary">create a new post</button></Link>
+                <Link to='new-post'><button className="btn btn-primary w-100">create a new post</button></Link>
                 {
-                    myPosts.map(post => <MyPostCard 
+                    myPosts?.map(post => <MyPostCard 
                     post={post}
                     key={post._id}
                     handleDelete={handleDelete}
@@ -40,12 +42,8 @@ const MyPost = () => {
                     />)
                 }
             </div>
-            <UpdateForm 
-                    setIsUpdate={setIsUpdate}
-                    isUpdate={isUpdate}    
-            />
         </div>
     );
 };
 
-export default MyPost;
+export default withRouter(MyPost);

@@ -1,10 +1,9 @@
 .cardBox{
-    background: gainsboro;
-    border: 1px solid lime;
     margin: 1rem 0;
     padding: 1rem;
+    border-radius: 0.3rem;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
 }
-.cardBox img {
-    width: 100%;
-    height: 200px;
+.marginTop {
+    margin-top: 4rem;
 }
