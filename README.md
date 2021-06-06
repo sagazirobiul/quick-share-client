@@ -20,4 +20,4 @@
 - ImgBB
 - Bootstrap5
 
-<p>Server repo: <a href="https://github.com/sagazirobiul/quick-share-server" target="_blank">Quick-share</a></P>
+<h5>Server repo: <a href="https://github.com/sagazirobiul/quick-share-server" target="_blank">Quick-share</a></h5>
