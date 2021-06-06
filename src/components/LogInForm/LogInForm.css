@@ -49,4 +49,8 @@
     outline: none;
     color: #297BE5;
     font-weight: 600;
+    padding: 0;
+}
+.errMessage {
+    font-size: 0.92882rem;
 }

@@ -7,3 +7,12 @@
 .marginTop {
     margin-top: 4rem;
 }
+.spinner {
+    width: 100%;
+    text-align: center;
+    height: 1vh;
+}
+.spinner img {
+    margin-top: 10%;
+    width: 350px;
+}

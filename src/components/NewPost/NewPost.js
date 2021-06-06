@@ -18,7 +18,7 @@ const NewPost = () => {
         postData.email = email;
         postData.userImg = img || userImg;
         postData.date = new Date().toDateString('dd/MM/yyy')
-        axios.post('http://localhost:5050/addPost', postData)
+        axios.post('https://quick-share-server.herokuapp.com/addPost', postData)
         .then(res => {
             if(res){
                 swal({

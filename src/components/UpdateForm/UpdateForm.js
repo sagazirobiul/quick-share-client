@@ -13,7 +13,7 @@ const UpdateForm = () => {
     const [isBtnClick, setBtnClick] = useState(false);
     const [postData, setPostData] = useState({})
     useEffect(() => {
-        axios.get(`http://localhost:5050/updatePost/${id}`)
+        axios.get(`https://quick-share-server.herokuapp.com/updatePost/${id}`)
         .then(data => setPostData(data.data[0]))
     }, [id])
     const onSubmit = data => {
@@ -21,7 +21,7 @@ const UpdateForm = () => {
         updatedData.title = data.title || postData.title
         updatedData.description = data.description || postData.description
         updatedData.img = upImg || postData.img
-        axios.patch(`http://localhost:5050/update/${id}`, updatedData)
+        axios.patch(`https://quick-share-server.herokuapp.com/update/${id}`, updatedData)
         .then(res => {
             if(res){
                 swal({
