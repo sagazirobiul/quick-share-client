@@ -1,6 +1,6 @@
 # Quick-share
 
-<a href="https://quick-share-social.web.app/" target="_blank">Live site</a>
+<a href="https://quick-share-social.web.app/" target="_blank"><h3>Live site</h3></a>
 
 # Features 
 - A content sharing website where user can share their article with image.
