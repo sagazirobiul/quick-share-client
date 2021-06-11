@@ -10,6 +10,7 @@
 
 # Key Technology
 - React 
+- Redux
 - React Router 
 - React Hook Form
 - Firebase Authentication
